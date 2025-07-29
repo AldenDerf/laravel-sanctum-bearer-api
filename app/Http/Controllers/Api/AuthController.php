@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -23,7 +25,7 @@ class AuthController extends Controller
 
         return response()->json([
             'user' => $user,
-            'token' => $user->createToken('api-token')-plainTextToken,
+            'token' => $user->createToken('api-token')->plainTextToken,
         ]);
     }
 
